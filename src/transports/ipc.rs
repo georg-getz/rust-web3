@@ -13,9 +13,10 @@ use std::{
     sync::{atomic::AtomicUsize, Arc},
     task::{Context, Poll},
 };
+#[cfg(unix)]
+use tokio::net::UnixStream;
 use tokio::{
     io::AsyncWriteExt,
-    net::UnixStream,
     sync::{mpsc, oneshot},
 };
 use tokio_stream::wrappers::UnboundedReceiverStream;
